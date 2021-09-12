@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "Skin Trade Pro",
+  //"options_page": "options.html",
+  "version": "1.0",
+  "description": "Build an Extension!",
+  "permissions": [
+  	"storage",
+  	"activeTab",
+  	"declarativeContent",
+    "*://*.steamcommunity.com/market/listings/730/*",
+    "*://*.steamcommunity.com/id/*/inventory*",
+    "*://*.steamcommunity.com/id/*/tradehistory*",
+    "*://*.steamcommunity.com/profiles/*/inventory*"
+  ],
+  "browser_action": {
+  	"default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+  	{
+	    "matches": [
+		    "*://*.steamcommunity.com/market/listings/730/*",
+		    "*://*.steamcommunity.com/id/*/inventory*",
+		    "*://*.steamcommunity.com/profiles/*/inventory*",
+		    "*://*.steamcommunity.com/tradeoffer/*"
+		],
+	  	"js":[
+	  		"yeet.js"
+	  		//"jquery-3.3.1.js"
+	  	],
+	  	"run_at": "document_end"
+  }
+]
+/*	"web_accessible_resources": [
+	    "yeet.js"
+	]*/
+/*  "page_action": {
+    "default_popup": "popup.html"
+  },*/
+}
